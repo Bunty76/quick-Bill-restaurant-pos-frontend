@@ -3,10 +3,15 @@
 
 import { logger } from "./logger";
 
-// Use absolute URL for production and Vite proxy for development
-const API_BASE_URL = import.meta.env.PROD
-  ? "https://quick-bill-restaurant-pos.onrender.com/api"
-  : "/api";
+// Base API URL:
+// 1. Prioritize VITE_API_URL if explicitly defined
+// 2. In production, default to the hosted Render backend API
+// 3. In development, use '/api' to route via Vite's proxy (preventing CORS issues in dev)
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD
+    ? "https://quick-bill-restaurant-pos.onrender.com/api"
+    : "/api");
 
 const request = async (endpoint: string, options: RequestInit = {}) => {
   const token = localStorage.getItem("token");

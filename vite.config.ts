@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   const BACKEND_URL =
-    env.VITE_BACKEND_URL || 'https://quick-bill-restaurant-pos.onrender.com';
+    env.VITE_BACKEND_URL || 'http://localhost:5000';
 
   return {
     plugins: [react()],
