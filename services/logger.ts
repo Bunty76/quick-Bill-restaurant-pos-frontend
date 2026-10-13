@@ -1,9 +1,11 @@
 /// <reference types="vite/client" />
 
 // Mirror the same prod/dev URL strategy used in api.ts
-const API_BASE_URL = import.meta.env.PROD
-    ? 'https://quick-bill-restaurant-pos.onrender.com/api'
-    : '/api';
+const API_BASE_URL =
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.PROD
+        ? 'https://quick-bill-restaurant-pos.onrender.com/api'
+        : '/api');
 
 interface LogPayload {
     level: 'info' | 'warn' | 'error';
