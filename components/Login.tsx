@@ -94,7 +94,10 @@ const Login: React.FC = () => {
               {isLoading ? "Signing in..." : "Sign in"}
             </button>
             <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-              for testing as staff: username: test and password: test
+              for testing as staff; username: test and password: test
+            </p>
+            <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+              for testing as staff; username: admin and password: admin
             </p>
           </div>
         </form>
